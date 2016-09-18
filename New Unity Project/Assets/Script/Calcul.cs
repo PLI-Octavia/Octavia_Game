@@ -8,6 +8,7 @@ public class Calcul {
     public int y;
     public int operation;
 
+    //Fonction qui génère les paramètres du calcule de façon aléatoire
     public void generateCalcul()
     {
         System.Random rnd = new System.Random();
@@ -21,7 +22,8 @@ public class Calcul {
         
     }
 
-    public int doCalcul(int x, int y, int op)
+    //Calcule l'opération et retourne le bon ou le mauvais résultats en fonction du besoin
+    public int doCalcul(int x, int y, int op, int correct)
     {
         int resultat;
 
@@ -37,7 +39,14 @@ public class Calcul {
         {
             resultat = x * y;
         }
-        return (resultat);
+        if (correct == 1)
+            return (resultat);
+        else
+        {
+            System.Random rnd = new System.Random();
+            resultat = rnd.Next(0, resultat);
+            return resultat;
+        }
     }
 
 }

@@ -8,13 +8,14 @@ public class SpawnScript : MonoBehaviour {
     public GameObject[] all_number;
     public GameObject[] all_operation;
     private GameObject EmptyGameObject;
-
+    
 	// Update is called once per frame
 	void Update () {
         //Pour le moment on fait l'apparation au clic on vera plus tard de faire au temps
         if (Input.GetKeyDown(KeyCode.Space))
         {
             int resultat;
+            int correct;
 
             //On génère l'objet vide qui va contenir le calcul et on attribue tout ce dont on aura besoin
             this.EmptyGameObject = new GameObject();
@@ -44,8 +45,21 @@ public class SpawnScript : MonoBehaviour {
             GameObject EgalChild = Instantiate(all_operation[3]) as GameObject;
             EgalChild.transform.parent = EmptyGameObject.transform;
             EgalChild.transform.position = new Vector3((transform.position.x + 1.6f), transform.position.y, 0.0f);
-                        
-            resultat = calcul.doCalcul(calcul.x, calcul.y, calcul.operation);
+
+            //On gère si le resultat affiché sera bon
+            var tmp = EmptyGameObject.GetComponent<DetectClick>();
+            System.Random rnd = new System.Random();
+            correct = rnd.Next(0, 20);
+            if (correct <= 10)
+            {
+                resultat = calcul.doCalcul(calcul.x, calcul.y, calcul.operation, 1);
+                tmp.isCorrect = 1;
+            } 
+            else
+            {
+                resultat = calcul.doCalcul(calcul.x, calcul.y, calcul.operation, 0);
+                tmp.isCorrect = 0;
+            }
             ParthNumber(resultat);
         }
     }
