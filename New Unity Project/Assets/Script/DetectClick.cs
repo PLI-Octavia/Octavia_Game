@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GlobalDatas;
 
 public class DetectClick : MonoBehaviour {
 
@@ -20,13 +21,16 @@ public class DetectClick : MonoBehaviour {
     {  
         if (isCorrect == 1)
         {
+            GameManagement.Score += 1;
             Debug.Log("C'est gagné");
         }
         else
         {
+            GameManagement.Life -= 1;
             Debug.Log("C'est Perdu");
         }
         this.CleanCalcul();
+        GameManagement.checkDeath();
     }
 
     //On détruit le GameObject et tous ses enfants

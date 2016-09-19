@@ -44,7 +44,7 @@ public class Calcul {
         else
         {
             System.Random rnd = new System.Random();
-            resultat = rnd.Next(0, resultat);
+            resultat = rnd.Next(0, 99);
             return resultat;
         }
     }
