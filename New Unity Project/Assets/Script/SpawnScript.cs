@@ -8,7 +8,13 @@ public class SpawnScript : MonoBehaviour {
     public GameObject[] all_number;
     public GameObject[] all_operation;
     private GameObject EmptyGameObject;
-    
+    private AudioSource audio;
+
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
+
 	// Update is called once per frame
 	void Update () {
         //Pour le moment on fait l'apparation au clic on vera plus tard de faire au temps
@@ -17,11 +23,17 @@ public class SpawnScript : MonoBehaviour {
             int resultat;
             int correct;
 
+            audio.Play();
             //On génère l'objet vide qui va contenir le calcul et on attribue tout ce dont on aura besoin
             this.EmptyGameObject = new GameObject();
             EmptyGameObject.transform.position = new Vector3(-5, 4, 0);
             EmptyGameObject.AddComponent<DetectClick>();
             EmptyGameObject.AddComponent<BoxCollider2D>();
+
+            //On fait en sorte que la boxCollider s'adapte aux calcule
+            EmptyGameObject.GetComponent<BoxCollider2D>().offset = new Vector2(1.5f, 0);
+            EmptyGameObject.GetComponent<BoxCollider2D>().size = new Vector2(3.5f, 1);
+
             //On génère le calcul
             this.calcul = new Calcul();
             calcul.generateCalcul();
