@@ -10,7 +10,7 @@ namespace GlobalDatas
         static private int level = 1;
         static private int score = 0;
         static private int life = 5;
-        
+          
         //Getteur Setteur
         static public float Timer
         {
@@ -45,6 +45,8 @@ namespace GlobalDatas
             if (Score >= (level * 20))
             {
                 Level = Level + 1;
+                if (Timer != 0.5f)
+                    Timer -= 0.2f;
             }    
         }
 

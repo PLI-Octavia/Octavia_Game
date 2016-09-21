@@ -22,10 +22,7 @@ public class SpawnScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Pour le moment on fait l'apparation au clic on vera plus tard de faire au temps
-        //Debug.Log("Score :" + GameManagement.Score + "Life : " + GameManagement.Life);
-        //System.Random rand = new System.Random();
-        int haveToSpawn = rnd.Next(0, 20);
-        Debug.Log(haveToSpawn);
+        
         if (timer >= GameManagement.Timer)
         {
             int resultat;
@@ -37,6 +34,7 @@ public class SpawnScript : MonoBehaviour {
             EmptyGameObject.transform.position = new Vector3(-5, 4, 0);
             EmptyGameObject.AddComponent<DetectClick>();
             EmptyGameObject.AddComponent<BoxCollider2D>();
+            
 
             //On fait en sorte que la boxCollider s'adapte aux calcule
             EmptyGameObject.GetComponent<BoxCollider2D>().offset = new Vector2(1.5f, 0);

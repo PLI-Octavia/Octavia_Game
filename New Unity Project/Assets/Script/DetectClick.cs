@@ -6,6 +6,7 @@ public class DetectClick : MonoBehaviour {
 
     private float speed = 1.0f;
     public int isCorrect;
+
 	// Use this for initialization
 	void Start () {
         
@@ -14,22 +15,34 @@ public class DetectClick : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.Translate(Vector3.down * Time.deltaTime * speed);
+
+        //Si la limite est atteinte on verifie si le calcul était bon ou pas
+        if (transform.position.y <= -3.30)
+        {
+            if (isCorrect == 1)
+                GameManagement.Life -= 1;
+            else
+                GameManagement.Score += 1;
+            this.CleanCalcul();
+            GameManagement.ChangeLevel();
+            GameManagement.checkDeath();
+        }
     }
 
     //Fonction qui appelé quand on clic sur un calcule
     void OnMouseDown()
-    {  
+    {
         if (isCorrect == 1)
         {
             GameManagement.Score += 1;
-            Debug.Log("C'est gagné");
         }
         else
         {
             GameManagement.Life -= 1;
-            Debug.Log("C'est Perdu");
+            
         }
         this.CleanCalcul();
+        GameManagement.ChangeLevel();
         GameManagement.checkDeath();
     }
 
