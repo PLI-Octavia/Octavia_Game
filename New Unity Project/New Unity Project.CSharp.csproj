@@ -66,6 +66,7 @@
     <Compile Include="Assets\Script\Calcul.cs" />
     <Compile Include="Assets\Script\DetectClick.cs" />
     <Compile Include="Assets\Script\GameManagement.cs" />
+    <Compile Include="Assets\Script\ScoreManagement.cs" />
     <Compile Include="Assets\Script\SpawnScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
