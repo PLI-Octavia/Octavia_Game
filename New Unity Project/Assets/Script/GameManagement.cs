@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace GlobalDatas
 {
     public class GameManagement : MonoBehaviour
     {
 
-        static private float timer = 3.0f;
+        static private float timer = 2.0f;
         static private int level = 1;
         static private int score = 0;
         static private int life = 5;
-          
+        static public System.Random rnd = new System.Random();
+
         //Getteur Setteur
         static public float Timer
         {
@@ -52,12 +54,12 @@ namespace GlobalDatas
 
         //Check si le joeur a encore le droit à l'erreur
         //TODO => au lieu de return -1 on Load la Scene de fin de jeu avec possibilité de rejouer
-        static public int checkDeath()
+        static public void checkDeath()
         {
-            if (Life > 0)
-                return (1);
-            else
-                return (-1);
+            if (Life <= 0)
+            {
+                SceneManager.LoadScene("endGame");
+            }
         }
 
 

@@ -4,7 +4,7 @@ using GlobalDatas;
 
 public class DetectClick : MonoBehaviour {
 
-    private float speed = 1.0f;
+    private float speed = 0.5f;
     public int isCorrect;
 
 	// Use this for initialization

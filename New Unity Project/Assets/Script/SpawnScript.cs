@@ -11,12 +11,12 @@ public class SpawnScript : MonoBehaviour {
     private GameObject EmptyGameObject;
     private AudioSource audio;
     private float timer;
-    private System.Random rnd;
-
+    //    private System.Random rnd;
+    public int offset;
     void Start()
     {
         audio = GetComponent<AudioSource>();
-        rnd = new System.Random();
+        //rnd = new System.Random();
     }
 
 	// Update is called once per frame
@@ -34,10 +34,11 @@ public class SpawnScript : MonoBehaviour {
             EmptyGameObject.transform.position = new Vector3(-5, 4, 0);
             EmptyGameObject.AddComponent<DetectClick>();
             EmptyGameObject.AddComponent<BoxCollider2D>();
-            
+
 
             //On fait en sorte que la boxCollider s'adapte aux calcule
-            EmptyGameObject.GetComponent<BoxCollider2D>().offset = new Vector2(1.5f, 0);
+            Debug.Log(transform.position.x);
+            EmptyGameObject.GetComponent<BoxCollider2D>().offset = new Vector2(offset, 0);
             EmptyGameObject.GetComponent<BoxCollider2D>().size = new Vector2(3.5f, 1);
 
             //On génère le calcul
@@ -67,7 +68,7 @@ public class SpawnScript : MonoBehaviour {
             //On gère si le resultat affiché sera bon
             var tmp = EmptyGameObject.GetComponent<DetectClick>();
             
-            correct = this.rnd.Next(0, 50);
+            correct = GameManagement.rnd.Next(0, 50);
             
             if (correct <= 25)
             {

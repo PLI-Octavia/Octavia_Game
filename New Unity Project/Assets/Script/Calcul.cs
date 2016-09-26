@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-
+using GlobalDatas;
 public class Calcul {
 
     public int x;
@@ -11,14 +11,14 @@ public class Calcul {
     //Fonction qui génère les paramètres du calcule de façon aléatoire
     public void generateCalcul()
     {
-        System.Random rnd = new System.Random();
+        //System.Random rnd = new System.Random();
 
-        this.operation = rnd.Next(0, 3);
-        this.x = rnd.Next(0, 9);
+        this.operation = GameManagement.rnd.Next(0, 3);
+        this.x = GameManagement.rnd.Next(0, 9);
         if (this.operation == 1)
-            this.y = rnd.Next(0, this.x);
+            this.y = GameManagement.rnd.Next(0, this.x);
         else
-            this.y = rnd.Next(0, 9);
+            this.y = GameManagement.rnd.Next(0, 9);
         
     }
 
@@ -43,8 +43,8 @@ public class Calcul {
             return (resultat);
         else
         {
-            System.Random rnd = new System.Random();
-            resultat = rnd.Next(0, 99);
+            //System.Random rnd = new System.Random();
+            resultat = GameManagement.rnd.Next(0, 99);
             return resultat;
         }
     }
