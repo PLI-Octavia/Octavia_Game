@@ -4,8 +4,8 @@ using GlobalDatas;
 
 public class DetectClick : MonoBehaviour {
 
-    private float speed = 0.5f;
-    public int isCorrect;
+    private float speed = 1.0f;
+    public bool isCorrect;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,7 @@ public class DetectClick : MonoBehaviour {
         //Si la limite est atteinte on verifie si le calcul était bon ou pas
         if (transform.position.y <= -3.30)
         {
-            if (isCorrect == 1)
+            if (isCorrect == false)
                 GameManagement.Life -= 1;
             else
                 GameManagement.Score += 1;
@@ -32,7 +32,7 @@ public class DetectClick : MonoBehaviour {
     //Fonction qui appelé quand on clic sur un calcule
     void OnMouseDown()
     {
-        if (isCorrect == 1)
+        if (isCorrect == false)
         {
             GameManagement.Score += 1;
         }

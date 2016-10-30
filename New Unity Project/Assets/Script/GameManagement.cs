@@ -7,7 +7,7 @@ namespace GlobalDatas
     public class GameManagement : MonoBehaviour
     {
 
-        static private float timer = 2.0f;
+        static private float timer = 5.0f;
         static private int level = 1;
         static private int score = 0;
         static private int life = 5;
@@ -56,7 +56,7 @@ namespace GlobalDatas
         //TODO => au lieu de return -1 on Load la Scene de fin de jeu avec possibilité de rejouer
         static public void checkDeath()
         {
-            if (Life <= 0)
+            if (Life < 0)
             {
                 SceneManager.LoadScene("endGame");
             }

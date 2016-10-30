@@ -5,6 +5,7 @@ using GlobalDatas;
 
 public class ScoreManagement : MonoBehaviour {
 
+
     private int lastScore = 0;
 	// Use this for initialization
 	void Start () {

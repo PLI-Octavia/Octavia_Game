@@ -23,7 +23,7 @@ public class Calcul {
     }
 
     //Calcule l'opération et retourne le bon ou le mauvais résultats en fonction du besoin
-    public int doCalcul(int x, int y, int op, int correct)
+    public int doCalcul(int x, int y, int op, bool correct)
     {
         int resultat;
 
@@ -39,7 +39,7 @@ public class Calcul {
         {
             resultat = x * y;
         }
-        if (correct == 1)
+        if (correct == false)
             return (resultat);
         else
         {

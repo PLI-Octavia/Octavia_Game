@@ -15,6 +15,7 @@ public class SpawnScript : MonoBehaviour {
     public int offset;
     void Start()
     {
+        timer = GameManagement.Timer;
         audio = GetComponent<AudioSource>();
         //rnd = new System.Random();
     }
@@ -37,7 +38,6 @@ public class SpawnScript : MonoBehaviour {
 
 
             //On fait en sorte que la boxCollider s'adapte aux calcule
-            Debug.Log(transform.position.x);
             EmptyGameObject.GetComponent<BoxCollider2D>().offset = new Vector2(offset, 0);
             EmptyGameObject.GetComponent<BoxCollider2D>().size = new Vector2(3.5f, 1);
 
@@ -70,16 +70,8 @@ public class SpawnScript : MonoBehaviour {
             
             correct = GameManagement.rnd.Next(0, 50);
             
-            if (correct <= 25)
-            {
-                resultat = calcul.doCalcul(calcul.x, calcul.y, calcul.operation, 1);
-                tmp.isCorrect = 1;
-            }
-            else
-            {
-                resultat = calcul.doCalcul(calcul.x, calcul.y, calcul.operation, 0);
-                tmp.isCorrect = 0;
-            }
+            tmp.isCorrect = correct <= 25;
+            resultat = calcul.doCalcul(calcul.x, calcul.y, calcul.operation, tmp.isCorrect);
             ParthNumber(resultat);
             timer = 0.0f;
         } else
