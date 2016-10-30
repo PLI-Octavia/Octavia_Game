@@ -67,6 +67,7 @@
     <Compile Include="Assets\Script\DetectClick.cs" />
     <Compile Include="Assets\Script\EndScriptScore.cs" />
     <Compile Include="Assets\Script\GameManagement.cs" />
+    <Compile Include="Assets\Script\LifeManagement.cs" />
     <Compile Include="Assets\Script\ScoreManagement.cs" />
     <Compile Include="Assets\Script\SpawnScript.cs" />
   </ItemGroup>
