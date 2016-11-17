@@ -56,7 +56,7 @@ namespace GlobalDatas
         //TODO => au lieu de return -1 on Load la Scene de fin de jeu avec possibilité de rejouer
         static public void checkDeath()
         {
-            if (Life < 0)
+            if (Life < 1)
             {
                 SceneManager.LoadScene("endGame");
             }

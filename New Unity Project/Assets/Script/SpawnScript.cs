@@ -69,8 +69,14 @@ public class SpawnScript : MonoBehaviour {
             var tmp = EmptyGameObject.GetComponent<DetectClick>();
             
             correct = GameManagement.rnd.Next(0, 50);
-            
-            tmp.isCorrect = correct <= 25;
+
+            if (correct <= 25)
+                tmp.isCorrect = true;
+            else
+                tmp.isCorrect = false;
+            /*Debug.Log("Nb corect is " + correct);
+            tmp.isCorrect = correct <= 25;*/
+            Debug.Log("bool : " + tmp.isCorrect);
             resultat = calcul.doCalcul(calcul.x, calcul.y, calcul.operation, tmp.isCorrect);
             ParthNumber(resultat);
             timer = 0.0f;

@@ -22,7 +22,6 @@ public class LifeManagement : MonoBehaviour {
             tmp.transform.position =  new Vector3(initX, initY, 0.0f);
             life[i] = tmp;
             initX += 1.0f;
-            Debug.Log(i);
             i++;
         }
 	}
