@@ -27,10 +27,34 @@ public class DetectClick : MonoBehaviour {
             GameManagement.ChangeLevel();
             GameManagement.checkDeath();
         }
+
+        if (Input.touchCount == 1)
+        {
+            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+            Vector2 touchPos = new Vector2(wp.x, wp.y);
+            if (GetComponent<BoxCollider2D>() == Physics2D.OverlapPoint(touchPos))
+            {
+                if (isCorrect == false)
+                {
+                    GameManagement.Score += 1;
+                }
+                else
+                {
+                    GameManagement.Life -= 1;
+
+                }
+                this.CleanCalcul();
+                GameManagement.ChangeLevel();
+                GameManagement.checkDeath();
+            }
+        }
+
     }
 
+
+
     //Fonction qui appelé quand on clic sur un calcule
-    void OnMouseDown()
+    /*void OnMouseDown()
     {
         if (isCorrect == false)
         {
@@ -44,7 +68,7 @@ public class DetectClick : MonoBehaviour {
         this.CleanCalcul();
         GameManagement.ChangeLevel();
         GameManagement.checkDeath();
-    }
+    }*/
 
     //On détruit le GameObject et tous ses enfants
     private void CleanCalcul()

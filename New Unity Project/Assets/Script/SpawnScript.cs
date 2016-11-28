@@ -74,9 +74,6 @@ public class SpawnScript : MonoBehaviour {
                 tmp.isCorrect = true;
             else
                 tmp.isCorrect = false;
-            /*Debug.Log("Nb corect is " + correct);
-            tmp.isCorrect = correct <= 25;*/
-            Debug.Log("bool : " + tmp.isCorrect);
             resultat = calcul.doCalcul(calcul.x, calcul.y, calcul.operation, tmp.isCorrect);
             ParthNumber(resultat);
             timer = 0.0f;
